@@ -1,24 +1,19 @@
 pipeline {
     agent any
+    tools {
+        maven "m3"
+    }
     stages {
         stage('checkout') {
             steps {
                 git 'https://github.com/Sharuqmd/jenkins-project.git'
             }
         }
-        stage('Build') { 
+        stage('build') {
             steps {
-                sh 'mvn clean package' 
+                sh 'mvn clean install'
             }
         }
-        stage('docker image') {
-            steps{
-                sh 'docker build -t img .'
-            }
-        }
-        stage('docker') {
-            steps{
-                sh 'docker run -d -p 9090:8080 img'
-            }
+        
     }
 }
