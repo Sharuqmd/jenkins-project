@@ -21,7 +21,7 @@ pipeline {
         } 
         stage('docker container') {
             steps {
-                sh 'docker run -d -p 9090:8080 --name=app my-app1 '
+                sh 'docker run -d -p 9090:8080 --name=app my-app2 '
             }
         }                
     }
