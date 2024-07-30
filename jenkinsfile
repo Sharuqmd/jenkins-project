@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
         maven "m3"
+        docker 'd3'
     }
     stages {
         stage('checkout') {
